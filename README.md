@@ -30,6 +30,6 @@ docker-compose up --build
 | Frontend        | http://localhost:5173  |
 
 
-![Screenshot1](/insightflow/Images/img1.png)
-![Screenshot3](/insightflow/Images/img3.png)
-![Screenshot4](/insightflow/Images/img4.png)
+![Screenshot1](Images/img1.png)
+![Screenshot3](Images/img3.png)
+![Screenshot4](Images/img4.png)
