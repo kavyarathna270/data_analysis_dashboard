@@ -21,15 +21,16 @@ export const Register = () => {
   const [registerMutation, { loading }] = useMutation(REGISTER)
 
   const handleSubmit = async () => {
-    try {
-      setError('')
-      const { data } = await registerMutation({ variables: form })
-      login(data.register.token, data.register.user)
-      navigate('/dashboard')
-    } catch (e: any) {
-      setError(e.message)
-    }
+  try {
+    setError('')
+    const result = await registerMutation({ variables: form })
+    const data = result.data as any
+    login(data.register.token, data.register.user)
+    navigate('/dashboard')
+  } catch (e: any) {
+    setError(e.message)
   }
+}
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">

@@ -21,15 +21,16 @@ export const Login = () => {
   const [loginMutation, { loading }] = useMutation(LOGIN)
 
   const handleSubmit = async () => {
-    try {
-      setError('')
-      const { data } = await loginMutation({ variables: form })
-      login(data.login.token, data.login.user)
-      navigate('/dashboard')
-    } catch (e: any) {
-      setError(e.message)
-    }
+  try {
+    setError('')
+    const result = await loginMutation({ variables: form })
+    const data = result.data as any
+    login(data.login.token, data.login.user)
+    navigate('/dashboard')
+  } catch (e: any) {
+    setError(e.message)
   }
+}
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
